@@ -35,6 +35,20 @@ public class OperationExample {
 			System.out.println(e);
 		}
 		
+		Query queryBetween = entityManager.createQuery("SELECT e from Employee e "
+				+ "WHERE e.salary between 100 and 2000 ");
+		List<Employee> listEmployeeBetween = queryListEmployeeAsc.getResultList();
+		for(Employee e : listEmployeeBetween) {
+			System.out.println(e);
+		}
+		
+		Query queryLike = entityManager.createQuery("SELECT e from Employee e "
+				+ "WHERE e.name like 'S%'");
+		List<Employee> listEmployeeLike = queryListEmployeeAsc.getResultList();
+		for(Employee e : listEmployeeLike) {
+			System.out.println(e);
+		}
+		
 		entityManager.close();
 		emFactory.close();
 	}
