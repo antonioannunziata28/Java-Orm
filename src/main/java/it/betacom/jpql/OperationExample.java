@@ -49,6 +49,15 @@ public class OperationExample {
 			System.out.println(e);
 		}
 		
+		entityManager.getTransaction().begin();
+		Query queryDelete = entityManager.createQuery("DELETE from Employee e "
+				+ "WHERE e.salary > :p");
+		int deletedEmployee = queryDelete.setParameter("p", 2400).executeUpdate();
+		entityManager.getTransaction().commit();
+		System.out.println("Record cancellati: " + deletedEmployee);
+		
+		
+		
 		entityManager.close();
 		emFactory.close();
 	}
