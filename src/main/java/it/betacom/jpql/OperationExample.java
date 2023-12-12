@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import it.betacom.entity.Employee;
+
 public class OperationExample {
 
 	public static void main(String[] args) {
@@ -25,6 +27,13 @@ public class OperationExample {
 		Query queryMaxSalary = entityManager.createQuery("SELECT MAX (e.salary) from Employee e");
 		Double maxSalary = (Double) queryMaxSalary.getSingleResult();
 		System.out.println("Salario Massimo: €" + maxSalary);
+		
+		Query queryListEmployeeAsc = entityManager.createQuery("SELECT e from Employee e "
+				+ "order by e.name ASC");
+		List<Employee> listEmployee = queryListEmployeeAsc.getResultList();
+		for(Employee e : listEmployee) {
+			System.out.println(e);
+		}
 		
 		entityManager.close();
 		emFactory.close();
