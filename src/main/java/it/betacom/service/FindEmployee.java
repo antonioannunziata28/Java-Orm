@@ -13,7 +13,7 @@ public class FindEmployee {
 		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("JpaProject");
 		EntityManager entityManager = emFactory.createEntityManager();
 		
-		Employee employee = entityManager.find(Employee.class, 2);
+		Employee employee = entityManager.find(Employee.class, 51);
 		System.out.println(employee.toString());
         entityManager.close();
         emFactory.close();

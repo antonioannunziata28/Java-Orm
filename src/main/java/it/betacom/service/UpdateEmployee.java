@@ -14,7 +14,7 @@ public class UpdateEmployee {
 		EntityManager entityManager = emFactory.createEntityManager();
 		
 		entityManager.getTransaction().begin();
-		Employee employee = entityManager.find(Employee.class, 2);
+		Employee employee = entityManager.find(Employee.class, 51);
 		employee.setSalary(2500);
 		entityManager.getTransaction().commit();
 	    entityManager.close();
